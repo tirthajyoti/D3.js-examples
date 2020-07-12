@@ -88,6 +88,19 @@
         
         // Increment the count of the items
         numBars+=1
+
+        if (numBars===1)
+        {
+            d3.select("#header-p")
+            .text("We have a single bar so far")
+            .style("background-color","#CCDDEE")
+        } 
+        else 
+        {
+            d3.select("#header-p")
+            .text("We have " + numBars + " bars now")
+            .style("background-color","#CCDDEE")
+        }
       
         /* 
         Selecting the 'Clean up' button by first selecting the div class 
