@@ -1,0 +1,97 @@
+<title>A D3.js selection/attribute/style setting example</title>
+<head>
+    <script src="http://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .top {
+            border: solid 2px blue;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .code {
+            font-family: monospace;
+            background-color: lightgray;
+            font-weight: 400;
+            font-size: 14;
+        }
+
+        #header-p {
+            font-size: 18;
+        }
+    </style>
+</head>
+<body>
+  <h1>A simple selection/interactivity example with d3.js</a></h1>
+  
+  <p class="top">
+      D3.js is a wonderful JavaScript <a href="https://d3js.org/">visualization library</a>. 
+      In this simple example, however, we are <b>not doing any visualization</b> but only 
+      demonstrating the use of certain methods from D3, involved in the 
+      <b>selection, attribute setting, and style setting of the DOM elements</b>. 
+      We even invoke a function through D3 by setting the 
+      <span class="code">onclick</span> attribute of a button.  
+  </p>
+  
+  <p id="header-p">
+      Here is a list. You cannot see anything, right? Click on the button below!
+  </p>
+  <button onclick="addListItem()">Click to add an item to the list</button>
+  <div>
+    
+  </div>
+  
+    <script type="text/javascript">
+    var numItems = 0
+    function addListItem()
+    {
+        numItems+=1
+        var num = 10+Math.floor(91*Math.random())
+
+        d3.select("div")
+        .append("ul")
+        .attr("id","the-list")
+
+        d3.select("#the-list")
+        .append("li")
+        .text("A random number between 10 and 100: "+ num)
+
+        if (numItems===1)
+        {
+            d3.select("#header-p")
+            .text("Now the list has a single element")
+            .style("background-color","#CCDDEE")
+        } 
+        else 
+        {
+            d3.select("#header-p")
+            .text("Now the list has " + numItems + " elements")
+            .style("background-color","#CCDDEE")
+        }
+    
+        d3.select("div")
+        .select("button")
+        .remove()
+
+        d3.select("div")
+        .append("button")
+        .text("Clean up")
+        .attr("onclick","cleanUp()")
+    }
+
+    function cleanUp()
+    {
+        d3.select("ul")
+        .remove()
+
+        d3.select("div")
+        .select("button")
+        .remove()
+
+        d3.select("#header-p")
+        .text("List cleaned up! Click on the button below to add again.")
+        .style("background-color","#FFFFFF")
+
+        numItems = 0
+    }
+    </script>
+  </body>
