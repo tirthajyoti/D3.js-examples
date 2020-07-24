@@ -1,0 +1,190 @@
+<html>
+<title>World cup soccer teams' data</title>
+<head>
+    <script src="js/d3.v4.min.js"></script>
+    <style type="text/css">
+        .tg  {
+            border-collapse:collapse;
+            border-spacing:0;
+            background-color:cyan
+            }
+        .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+        font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-i77n{background-color:#f8a102;border-color:inherit;font-family:"Comic Sans MS", cursive, sans-serif !important;;
+        font-size:16px;text-align:center;vertical-align:top}
+        .tg .tg-kb93{background-color:#fffc9e;border-color:inherit;font-family:"Comic Sans MS", cursive, sans-serif !important;;
+        font-weight:bold;text-align:center;vertical-align:top}
+
+        button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            border-radius: 8px;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            }
+        hr {
+            color: darkgray;
+            height: 2px;
+            background-color: darkgray;
+        }
+    </style>
+</head>
+<body onload="createSoccerViz()">
+    <h1>World Cup soccer teams' data</h1>
+    <hr>
+    <h2>We are reading a CSV file from a server with the following data</h2>
+
+    <table class="tg tg-i77n tg-kb93">
+        <thead><tr><th title="Field #1">team</th>
+        <th title="Field #2">region</th>
+        <th title="Field #3">win</th>
+        <th title="Field #4">loss</th>
+        <th title="Field #5">draw</th>
+        <th title="Field #6">points</th>
+        <th title="Field #7">gf</th>
+        <th title="Field #8">ga</th>
+        <th title="Field #9">cs</th>
+        <th title="Field #10">yc</th>
+        <th title="Field #11">rc</th>
+        <th title="Field #12">FIELD12</th>
+        <th title="Field #13">FIELD13</th>
+        </tr></thead>
+        <tbody><tr>
+        <td>Germany</td>
+        <td>UEFA</td>
+        <td align="right">7</td>
+        <td align="right">6</td>
+        <td align="right">0</td>
+        <td align="right">1</td>
+        <td align="right">19</td>
+        <td align="right">18</td>
+        <td align="right">4</td>
+        <td align="right">14</td>
+        <td align="right">4</td>
+        <td align="right">6</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>Argentina</td>
+        <td>CONMEBOL</td>
+        <td align="right">7</td>
+        <td align="right">5</td>
+        <td align="right">1</td>
+        <td align="right">1</td>
+        <td align="right">16</td>
+        <td align="right">8</td>
+        <td align="right">4</td>
+        <td align="right">4</td>
+        <td align="right">4</td>
+        <td align="right">8</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>Netherlands</td>
+        <td>UEFA</td>
+        <td align="right">7</td>
+        <td align="right">5</td>
+        <td align="right">0</td>
+        <td align="right">2</td>
+        <td align="right">17</td>
+        <td align="right">15</td>
+        <td align="right">4</td>
+        <td align="right">11</td>
+        <td align="right">4</td>
+        <td align="right">11</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>Belgium</td>
+        <td>UEFA</td>
+        <td align="right">5</td>
+        <td align="right">4</td>
+        <td align="right">1</td>
+        <td align="right">0</td>
+        <td align="right">12</td>
+        <td align="right">6</td>
+        <td align="right">3</td>
+        <td align="right">3</td>
+        <td align="right">2</td>
+        <td align="right">7</td>
+        <td>1</td>
+        </tr>
+        <tr>
+        <td>Colombia</td>
+        <td>CONMEBOL</td>
+        <td align="right">5</td>
+        <td align="right">4</td>
+        <td align="right">1</td>
+        <td align="right">0</td>
+        <td align="right">12</td>
+        <td align="right">12</td>
+        <td align="right">4</td>
+        <td align="right">8</td>
+        <td align="right">2</td>
+        <td align="right">5</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>Brazil</td>
+        <td>CONMEBOL</td>
+        <td align="right">7</td>
+        <td align="right">3</td>
+        <td align="right">2</td>
+        <td align="right">2</td>
+        <td align="right">11</td>
+        <td align="right">11</td>
+        <td align="right">14</td>
+        <td align="right">0</td>
+        <td align="right">1</td>
+        <td align="right">14</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>Japan</td>
+        <td>AFC</td>
+        <td align="right">3</td>
+        <td align="right">0</td>
+        <td align="right">2</td>
+        <td align="right">1</td>
+        <td align="right">1</td>
+        <td align="right">2</td>
+        <td align="right">6</td>
+        <td align="right">0</td>
+        <td align="right">1</td>
+        <td align="right">4</td>
+        <td>0</td>
+        </tr>
+        <tr>
+        <td>United States</td>
+        <td>CONCACAF</td>
+        <td align="right">4</td>
+        <td align="right">1</td>
+        <td align="right">2</td>
+        <td align="right">1</td>
+        <td align="right">4</td>
+        <td align="right">5</td>
+        <td align="right">6</td>
+        <td align="right">0</td>
+        <td align="right">0</td>
+        <td align="right">4</td>
+        <td>0</td>
+        </tr>
+        </tbody></table>
+
+        <p></p>
+    
+    <button id="bttn-wins"> Show the wins!</button>
+    <button id="bttn-loss"> Show the losses!</button>
+    <p></p>
+    <div id="viz">
+    </div>
+    <p></p>
+    <script src="js/worldcup-2.js"></script>
+</body>
+</html>
