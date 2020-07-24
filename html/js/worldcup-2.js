@@ -28,10 +28,12 @@ function loadData(data){
 
 function showWins() {
     
+    // Removing the SVG before redrawing
     d3.select("#viz")
     .select("svg")
     .remove()
     
+    // (Re)draw the SVG
     d3.select("#viz")
     .append("svg")
     .attr("width","800px")
@@ -41,6 +43,7 @@ function showWins() {
     .style("border-color","black")
     .style("background-color","lightgray")
     
+    // Append a group `overallG`
     d3.select("svg")
     .append("g")
     .attr("id", "teamsG")
