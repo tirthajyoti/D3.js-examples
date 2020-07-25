@@ -35,6 +35,12 @@
           .svg-container{
             background-color: cyan;
           }
+          .input-text {
+            width: 150px;
+          }
+          .optional{
+            font-weight: bold;
+          }
     </style>
 </head>
 <body">
@@ -45,6 +51,9 @@
       and generating the following bar chart</h2>
     <p></p>
     <button id="bttn-bar"> Display the bar chart</button>
+    <span class='optional'>(Optional)</span>,  
+    X-axis label <input id="x-label" class="input-text" type="text">,
+    Y-axis label <input id="y-label" class="input-text" type="text">
     <p></p>
     <div id="viz">
     </div>
