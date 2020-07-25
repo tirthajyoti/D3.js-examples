@@ -1,0 +1,55 @@
+<html>
+<title>Bar chart of US solar electricity generation</title>
+<head>
+    <script src="js/d3.v4.min.js"></script>
+    <style type="text/css">
+        #container {
+        margin-left: 50px;
+        margin-right: 50px;
+          }
+        .bar {
+        fill: steelblue;
+        stroke: black;
+        stroke-width: 2px;
+        }
+        .chart-title{
+          font-size: 1.5em;
+          font-weight: bold;
+        }
+        button {
+            background-color: #4CAF50; /* Green */
+            border: brown;
+            border-radius: 8px;
+            color: white;
+            padding: 10px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            }
+          hr {
+            color: darkgray;
+            height: 2px;
+            background-color: darkgray;
+          }
+          .svg-container{
+            background-color: cyan;
+          }
+    </style>
+</head>
+<body">
+    <div id="container">
+    <h1>Bar chart of US solar electricity generation</h1>
+    <hr>
+    <h2>We are reading a CSV file from a server 
+      and generating the following bar chart</h2>
+    <p></p>
+    <button id="bttn-bar"> Display the bar chart</button>
+    <p></p>
+    <div id="viz">
+    </div>
+    <p></p>
+</div>
+    <script src="js/US-solar-generation.js"></script>
+</body>
+</html>
