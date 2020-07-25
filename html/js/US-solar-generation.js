@@ -2,7 +2,7 @@ const windowWidth = window.innerWidth
 const windowHeight = window.innerHeight
 
 const width = windowWidth*0.9
-const height = windowHeight*0.75
+const height = windowHeight*0.7
 const margin = {top: 60, bottom: 60, right: 20, left: 50}
 const innerWidth = width - margin.left - margin.right;
 const innerHeight = height - margin.top - margin.bottom;
@@ -10,11 +10,21 @@ const xTranslate = 70;
 const yTranslate = 40;
 
 const barBttn = document.getElementById("bttn-bar")
-
 barBttn.addEventListener("click",barchart)
 
 function barchart(){
-    // Removing the SVG before redrawing
+  // Checking X-label, Y-label inputs
+  xLabel = document.getElementById("x-label").value
+  yLabel = document.getElementById("y-label").value
+
+  if (xLabel.length===0){
+    xLabel = "Year"
+  }
+  if (yLabel.length===0){
+    yLabel = "Solar generation (Billion kWh)"
+  }
+  
+  // Removing the SVG before redrawing
     d3.select("#viz")
       .select("svg")
       .remove()
@@ -41,35 +51,40 @@ function barchart(){
       xScale.domain(data.map(function(d) { return d.Year; }));
       yScale.domain([0, d3.max(data, function(d) { return +d.Quantity; })]);
 
-      g.append("g")
+      const xAxisG = g.append("g")
       .attr("transform", "translate(0," + innerHeight + ")")
       .style("font-size","14px")
-      .call(d3.axisBottom(xScale))
-      // X-axis label
-      .append("text")
-      .attr("y", 40)
-      .attr("x", innerWidth/2)
-      .attr("text-anchor", "middle")
-      .attr("stroke", "black")
-      .text("Year")
-      .style("font-family","verdana")
-      .style("fill",'black');
+      .call(d3.axisBottom(xScale));
 
-      g.append("g")
+      // X-axis label
+      xAxisG
+      .append("text")
+        .attr("y", 40)
+        .attr("x", innerWidth/2)
+        .attr("text-anchor", "middle")
+        .attr("stroke", "black")
+        .text(xLabel)
+        .style("font-family","verdana")
+        .style("fill",'black');
+
+      const yAxisG = g.append("g")
         .style("font-size","14px")
-        .call(d3.axisLeft(yScale).tickFormat(function(d){
-            return d/1000;
-        }).ticks(15))
+        .call(d3.axisLeft(yScale)
+          .tickFormat(d =>d/1000)
+          .tickSize(-innerWidth)
+          .ticks(15));
+
         // Y-axis label
-        .append("text")
-          .attr("transform", "rotate(-90)")
-          .attr("y", -xTranslate/2)
-          .attr("x",-innerHeight/2)
-          .attr("text-anchor", "middle")
-          .attr("stroke", "black")
-          .text("Solar generation (Billion kWh)")
-          .style("font-family","verdana")
-          .style("fill",'black')
+        yAxisG
+          .append("text")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -xTranslate/2)
+            .attr("x",-innerHeight/2)
+            .attr("text-anchor", "middle")
+            .attr("stroke", "black")
+            .text(yLabel)
+            .style("font-family","verdana")
+            .style("fill",'black')
       
       g.selectAll(".bar")
          .data(data)
