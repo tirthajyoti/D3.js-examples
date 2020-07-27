@@ -1,0 +1,100 @@
+<html>
+<title>Line chart of the San Francisco temperature data</title>
+<head>
+    <script src="js/d3.v4.min.js"></script>
+    <style type="text/css">
+        #container {
+          margin-left: 50px;
+          margin-right: 50px;
+        }
+        .header-description{
+          font-size: 1.2em;
+          line-height: 1.6;
+        }
+        .line-path {
+          fill: none;
+          stroke: steelblue;
+          stroke-width: 5px;
+          stroke-linejoin: round;
+        }
+        .markers {
+          fill: red;
+          opacity: 0.5;
+          stroke: red;
+          stroke-width: 1px;
+        }
+        .chart-title{
+          font-size: 2em;
+          font-weight: bold;
+          fill: blueviolet
+        }
+        .y-Axis{
+          font-size: 1.3em;
+          color: lightgray;
+        }
+        .y-Label{
+          fill: blueviolet;
+        }
+        .x-Axis{
+          font-size: 1.3em;
+        }
+        .x-Label{
+          fill: blueviolet;
+        }
+        button {
+          background-color: #4CAF50; /* Green */
+          border: brown;
+          border-radius: 8px;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+            }
+        hr {
+          color: darkgray;
+          height: 2px;
+          background-color: darkgray;
+        }
+        .svg-container{
+          background-color:white;
+        }
+        .input-text {
+          width: 150px;
+        }
+        .optional{
+          font-weight: bold;
+        }
+    </style>
+</head>
+<body">
+    <div id="container">
+    <h1>Line chart of the San Francisco temperature data</h1>
+    <hr>
+    <img src="https://www.mercurynews.com/wp-content/uploads/2018/10/San-Francisco-2-2.jpg?w=500">
+    <p class="header-description">We are reading the CSV file 
+      corresponding to the week-long temperture data 
+      of the city of San Francisco, and generating the following 
+      line chart.
+      <br>
+      The CSV file is stored on 
+      <a href="https://github.com/tirthajyoti/D3.js-examples/blob/master/html/data/temperature-in-san-francisco.csv" target="_blank">my Github repo here</a>.
+      We are working with <a href="https://www.w3schools.com/jsref/jsref_obj_date.asp" target="_blank">Date objects</a> here.
+    </p>
+    <p></p>
+    <button id="bttn-line"> Display the line chart</button> 
+    <p></p>
+    <span class='optional'>(Optional user inputs)</span><p></p> 
+    X-axis label <input id="x-label" class="input-text" type="text">,
+    Y-axis label <input id="y-label" class="input-text" type="text"><p></p>
+    <label><input type="checkbox" id='smooth-curve' name='smooth-curve' value=0> Smooth the curve</label><p></p>
+    <label><input type="checkbox" id='show-marker' name='show-marker' value=0> Turn markers (data points) ON</label>
+    <p></p>
+    <div id="viz">
+    </div>
+    <p></p>
+</div>
+    <script src="js/sfo-temperature-line-chart.js"></script>
+</body>
+</html>
