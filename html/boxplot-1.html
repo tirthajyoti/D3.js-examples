@@ -1,0 +1,88 @@
+<html>
+<title>Boxplot example</title>
+<head>
+    <script src="js/d3.v4.min.js"></script>
+    <style type="text/css">
+        #container {
+        margin-left: 50px;
+        margin-right: 50px;
+          }
+        .bar {
+        fill: lightyellow;
+        stroke: black;
+        stroke-width: 2px;
+        }
+        .median-line {
+        stroke: gray;
+        stroke-width: 4px;
+        }
+        .range-line {
+        stroke: black;
+        stroke-width: 4px;
+        }
+        .chart-title{
+          font-size: 1.5em;
+          font-weight: bold;
+          fill: red
+        }
+        .y-Axis{
+          font-size:1.5em;
+        }
+        .y-Label{          
+          fill: blueviolet;
+        }
+        .tick line{
+          stroke: gray;
+        }
+        .tick text{
+          fill: gray;
+        }
+        .x-Axis{
+          font-size: 1.5em;
+        }
+        .x-Label{
+          fill: blueviolet;
+        }
+        button {
+          background-color: #4CAF50; /* Green */
+          border: brown;
+          border-radius: 8px;
+          color: white;
+          padding: 10px 30px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+            }
+          hr {
+            color: darkgray;
+            height: 2px;
+            background-color: darkgray;
+          }
+          .svg-container{
+            background-color: white;
+          }
+          .input-text {
+            width: 150px;
+          }
+          .optional{
+            font-weight: bold;
+          }
+    </style>
+</head>
+<body">
+    <div id="container">
+    <h1>Simple Boxplot</h1>
+    <hr>
+    <h2>We are reading a CSV file with 
+      pre-processed data (for Boxplot)</h2>
+    <p></p>
+    <button id="bttn-box"> Display the boxplot</button>
+    <p></p>
+    <div id="viz">
+    </div>
+    <p></p>
+</div>
+    <script src="js/boxplot-1.js"></script>
+</body>
+</html>
