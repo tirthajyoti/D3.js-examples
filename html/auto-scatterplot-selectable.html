@@ -1,0 +1,30 @@
+<html>
+<title>Scatter plots of the Auto-MPG dataset</title>
+<head>
+    <link rel="stylesheet" href="css/auto-scatterplot-selectable.css">
+    <script src="js/d3.v4.min.js"></script>
+</head>
+<body onload=scatterplot()>
+    <div id="container">
+    <h1>Scatter plots of Auto MPG dataset (user selectable)</h1>
+    <hr>
+    <p class="header-description">We are reading the CSV file 
+      corresponding to the <a href="https://archive.ics.uci.edu/ml/datasets/Auto+MPG">famous car MPG dataset</a> 
+      from the <a href="https://archive.ics.uci.edu/ml/index.php">
+      UCI ML repository</a>, and generating scatter plots based on 
+      your choice (from the drop-down menu).
+      The CSV file is stored on 
+      <a href="https://github.com/tirthajyoti/D3.js-examples/blob/master/html/data/auto-mpg.csv">my Github repo here</a>.</p>
+    <p></p>
+    <label for="xvarselect">Choose X variable</label>
+    <select name="xvarselect" id="xvarselect"></select>
+    <label for="yvarselect">Choose Y variable</label>
+    <select name="yvarselect" id="yvarselect"></select>
+    <p></p>
+    <div id="viz">
+    </div>
+    <p></p>
+</div>
+    <script src="js/auto-scatterplot-selectable.js"></script>
+</body>
+</html>
