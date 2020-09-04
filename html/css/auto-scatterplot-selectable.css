@@ -1,0 +1,89 @@
+#container {
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .header-description{
+    font-size: 1.2em;
+  }
+  .scatter {
+    fill: red;
+    opacity: 0.5;
+    stroke: black;
+    stroke-width: 2px;
+  }
+  
+  .chart-title{
+    font-size: 2rem;
+    font-weight: bold;
+    fill: blueviolet;
+    font-family: cursive;
+  }
+  .y-Axis{
+    font-size: 1.2rem;
+    }
+
+  .tick{
+      fill: gray;
+  }
+  .y-Label{
+    fill: blueviolet;
+    font-family: verdana;
+  }
+  .x-Axis{
+    font-size: 1.2rem;
+  }
+  .x-Label{
+    fill: blueviolet;
+  }
+
+  button {
+    background-color: #4CAF50; /* Green */
+    border: brown;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+      }
+  hr {
+    color: darkgray;
+    height: 2px;
+    background-color: darkgray;
+  }
+  .svg-container{
+    background-color: white;
+  }
+  
+  #xvarselect, #yvarselect {
+    width: 150px;
+    font-size: 16px;
+    font-family: cursive;
+    background-color: floralwhite;
+  }
+  .optional{
+    font-weight: bold;
+  }
+
+  .tipG {
+    fill: red;
+  }
+  
+  .tip-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    shape-rendering: crispEdges;
+    text-anchor: left;
+  }
+
+  .tooltip {
+    position: absolute;
+    padding: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    width:  auto;
+    height: auto;
+    pointer-events: none;
+    background-color: lightgreen;
+}
